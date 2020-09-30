@@ -41,6 +41,8 @@ public class Person {
     private int age;
     @Column(name = "HOMEPAGE", length = 255, table = "URLS")
     private String homepage;
+    @Embedded
+    private Address address = new Address();
 
     public Person() {
     }
@@ -49,6 +51,14 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public long getPersonId() {
@@ -141,6 +151,7 @@ public class Person {
                 ", married=" + married +
                 ", age=" + age +
                 ", homepage='" + homepage + '\'' +
+                ", address='" + getAddress().toString() + '\'' +
                 '}';
     }
 }

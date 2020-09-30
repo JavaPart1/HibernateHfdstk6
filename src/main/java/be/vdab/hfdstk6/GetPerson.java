@@ -15,7 +15,7 @@ public class GetPerson {
             EntityTransaction tx =em.getTransaction();
             System.out.println("GetPerson - Start txn");
             tx.begin();
-            Person person = em.find(Person.class, 4L);
+            Person person = em.find(Person.class, 1L);
             tx.commit();
             System.out.println("GetPerson - Commit txn");
             System.out.println(person.toString());
